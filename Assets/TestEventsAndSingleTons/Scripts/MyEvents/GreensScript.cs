@@ -5,6 +5,9 @@ public class GreensScript : MonoBehaviour
     public int buttonPressCount;
     public int maximumButtonsToPress;
 
+    [HeaderAttribute("AudioManager")]
+    public GameObject YuckSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,11 +21,15 @@ public class GreensScript : MonoBehaviour
                 Debug.Log(" Pressed maximum buttons!");
          
          }
+        
+        YuckSound.SetActive(true);
+        YuckSound.SetActive(false);
+    
+    }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
     }
 }
