@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public class GreensScript : MonoBehaviour
+{
+    public int buttonPressCount;
+    public int maximumButtonsToPress;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        void IncrementAndEvaluateButtonPressCount()
+         { Debug.Log ("pressgreensbutton!");
+
+            buttonPressCount = buttonPressCount - 1;
+            Debug.Log(" Buttons pressed == " + buttonPressCount.ToString());
+
+            if (buttonPressCount >= maximumButtonsToPress)
+                Debug.Log(" Pressed maximum buttons!");
+         
+         }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    }
+}

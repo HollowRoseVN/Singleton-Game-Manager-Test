@@ -27,5 +27,17 @@ public class MyGameController : MonoBehaviour
         //*** We check  if all buttons were pressed
         if (buttonPressCount >= maximumButtonsToPress)
             Debug.Log(" Pressed All Available buttons!");
+
+    }
+
+    void IncrementAndEvaluateButtonPressCount()
+    { Debug.Log ("pressbutton!");
+
+        buttonPressCount = buttonPressCount + 1;
+        Debug.Log(" Buttons pressed == " + buttonPressCount.ToString());
+
+        if (buttonPressCount >= maximumButtonsToPress)
+            Debug.Log(" Pressed All Available buttons!");
+
     }
 }
