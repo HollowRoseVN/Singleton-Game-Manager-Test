@@ -14,7 +14,7 @@ public class PastryScript : MonoBehaviour
     {
 
         void IncrementAndEvaluatePastryButtonPressCount()
-         { Debug.Log ("presspastrybutton!");
+         { Debug.Log ("pressPastryButton!");
 
             pastryButtonPressCount = pastryButtonPressCount + 1;
             Debug.Log(" Buttons pressed == " + pastryButtonPressCount.ToString());
