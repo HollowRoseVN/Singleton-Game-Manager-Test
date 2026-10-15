@@ -12,8 +12,9 @@ public class PastryScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-        void IncrementAndEvaluatePastryButtonPressCount()
+    }
+        
+        public void IncrementAndEvaluatePastryButtonPressCount()
          { Debug.Log ("pressPastryButton!");
 
             pastryButtonPressCount = pastryButtonPressCount + 1;
@@ -21,12 +22,10 @@ public class PastryScript : MonoBehaviour
 
             if (pastryButtonPressCount >= maximumButtonsToPress)
                 Debug.Log(" Pressed maximum pastry buttons!");
-        
-        YumSound.SetActive(true);
-        YumSound.SetActive(false);
 
-    }
-        
+        YumSound.SetActive(false);     
+        YumSound.SetActive(true);
+
     }
 
     // Update is called once per frame

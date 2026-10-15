@@ -29,8 +29,7 @@ public class MyGameController : MonoBehaviour
             Debug.Log(" Pressed All Available buttons!");
 
     }
-
-    void IncrementAndEvaluateButtonPressCount()
+    public void IncrementAndEvaluateButtonPressCount()
     { Debug.Log ("pressbutton!");
 
         buttonPressCount = buttonPressCount + 1;

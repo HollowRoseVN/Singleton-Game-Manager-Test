@@ -10,8 +10,8 @@ public class GreensScript : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        void IncrementAndEvaluateButtonPressCount()
+    {}
+        public void IncrementAndEvaluateButtonPressCount()
          { Debug.Log ("pressgreensbutton!");
 
             buttonPressCount = buttonPressCount - 1;
@@ -19,14 +19,11 @@ public class GreensScript : MonoBehaviour
 
             if (buttonPressCount >= maximumButtonsToPress)
                 Debug.Log(" Pressed maximum buttons!");
-         
-         }
-        
-        YuckSound.SetActive(true);
-        YuckSound.SetActive(false);
-    
-    }
 
+            YuckSound.SetActive(false); 
+            YuckSound.SetActive(true);
+
+         }
     // Update is called once per frame
     void Update()
     {

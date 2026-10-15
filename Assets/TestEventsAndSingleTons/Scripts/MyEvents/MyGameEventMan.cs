@@ -8,12 +8,10 @@ public class MyGameEventMan : MonoBehaviour
 
     public int buttonPressCount;
     public int maximumButtonsToPress;
-
-    public Button Eventbutton_first;
-    public Button Eventbutton_sec;
-    public Button Eventbutton_thir;
-    public Button Eventbutton_fou;
-    public Button Eventbutton_fif;
+    public PastryScript Pastry;
+    public GreensScript Greens;
+    public Button Eventbutton_yum;
+    public Button Eventbutton_yuck;
 
     // Start is called before the first frame update
 
@@ -22,11 +20,8 @@ public class MyGameEventMan : MonoBehaviour
     { Debug.Log("EventManagerEnabled");
 
         //** Declare events and addevent listeners to inform when button press has occured
-        Eventbutton_first.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_sec.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_thir.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_fou.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_fif.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
+        Eventbutton_yum.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
+        Eventbutton_yuck.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
     }
 
     //*** On Disable happens when the gameobject is enabled
@@ -35,11 +30,8 @@ public class MyGameEventMan : MonoBehaviour
         //** Remove events and addevent listeners to inform when button press has occured
         //*** We do this to keep from  events being double registered or registring in
         // scripts that the engine has destroyed
-        Eventbutton_first.onClick.RemoveListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_sec.onClick.RemoveListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_thir.onClick.RemoveListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_fou.onClick.RemoveListener(IncrementAndEvaluateButtonPressCount);
-        Eventbutton_fif.onClick.RemoveListener(IncrementAndEvaluateButtonPressCount);
+        Eventbutton_yum.onClick.RemoveListener(IncrementAndEvaluateButtonPressCount);
+        Eventbutton_yuck.onClick.RemoveListener(IncrementAndEvaluateButtonPressCount);
     }
     
     void IncrementAndEvaluateButtonPressCount()
@@ -50,7 +42,22 @@ public class MyGameEventMan : MonoBehaviour
 
         if (buttonPressCount >= maximumButtonsToPress)
             Debug.Log(" Pressed All Available buttons!");
+        
+            Pastry.IncrementAndEvaluatePastryButtonPressCount();
 
     }
+
+    void DecrementAndEvaluateButtonPressCount()
+    { Debug.Log ("pressbutton!");
+
+        buttonPressCount = buttonPressCount - 1;
+        Debug.Log(" Buttons pressed == " + buttonPressCount.ToString());
+
+        if (buttonPressCount >= maximumButtonsToPress)
+            Debug.Log(" Pressed All Available buttons!");
+        
+            Greens.IncrementAndEvaluateButtonPressCount();
+
+    }   
     
 }
