@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class MyGameEventMan : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class MyGameEventMan : MonoBehaviour
     public GreensScript Greens;
     public Button Eventbutton_yum;
     public Button Eventbutton_yuck;
+   // public ScoreFeedback;
+    //public Counter;
 
     // Start is called before the first frame update
 
