@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class MyGameController : MonoBehaviour
 {
@@ -9,6 +11,21 @@ public class MyGameController : MonoBehaviour
 
     public int buttonPressCount;
     public int maximumButtonsToPress;
+
+    //private int startingScore;
+   // private bool gameOver;
+
+
+    [HeaderAttribute("AudioManager")]
+    public GameObject EatSound;
+    
+    public TMP_Text Feedback;
+    public TMP_Text CounterText;
+
+    [Header("Messages")]
+    public string someSweets = "Ohoho, just a little treat!";
+    public string manySweets = "Well, I AM feeling peckish...";
+    public string maxSweets = "...medic...someone call a medic...";
 
     // Awake is the function called Earliest when a scene is first initialized
     void Awake()
@@ -28,6 +45,17 @@ public class MyGameController : MonoBehaviour
         if (buttonPressCount >= maximumButtonsToPress)
             Debug.Log(" Pressed All Available buttons!");
 
+        if (buttonPressCount >= 2)
+        Feedback.text = "Ohoho, just a little treat!";
+
+        if (buttonPressCount >= 3)
+        Feedback.text = "Well, I AM feeling peckish...";
+
+        if (buttonPressCount >= 4)
+        Feedback.text = "...medic...someone call a medic...";
+
+        CounterText.text = $"Score: {buttonPressCount}";
+
     }
     public void IncrementAndEvaluateButtonPressCount()
     { Debug.Log ("pressbutton!");
@@ -39,4 +67,7 @@ public class MyGameController : MonoBehaviour
             Debug.Log(" Pressed All Available buttons!");
 
     }
+
 }
+
+

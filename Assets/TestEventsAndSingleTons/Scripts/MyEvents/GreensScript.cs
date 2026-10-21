@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GreensScript : MonoBehaviour
 {
@@ -7,26 +8,38 @@ public class GreensScript : MonoBehaviour
 
     [HeaderAttribute("AudioManager")]
     public GameObject YuckSound;
+    public TMP_Text ScoreFeedback;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {}
-        public void IncrementAndEvaluateButtonPressCount()
-         { Debug.Log ("pressgreensbutton!");
-
-            buttonPressCount = buttonPressCount - 1;
-            Debug.Log(" Buttons pressed == " + buttonPressCount.ToString());
-
-            if (buttonPressCount >= maximumButtonsToPress)
-                Debug.Log(" Pressed maximum buttons!");
-
-            YuckSound.SetActive(false); 
-            YuckSound.SetActive(true);
-
-         }
-    // Update is called once per frame
-    void Update()
+    public void DecrementAndEvaluateButtonPressCount()
     {
-        
+        Debug.Log("pressGreensButton!");
+
+        buttonPressCount = buttonPressCount - 1;
+        Debug.Log("Greens buttons pressed == " + buttonPressCount);
+
+        if (buttonPressCount >= maximumButtonsToPress)
+        {
+            Debug.Log("Pressed maximum greens buttons!");
+            ScoreFeedback.text = "I'm full of greens...";
+        }
+
+        if (YuckSound != null)
+        {
+            YuckSound.SetActive(false);
+            YuckSound.SetActive(true);
+        }
+
+        if (ScoreFeedback == null)
+        {
+            Debug.LogError("Please assign the ScoreFeedback text object to GreensScript!", this);
+            return;
+        }
+
+        ScoreFeedback.text = "Yuck! Greens!";
     }
+
+    public void ResetCount()
+{
+    buttonPressCount = 0;
+}
 }

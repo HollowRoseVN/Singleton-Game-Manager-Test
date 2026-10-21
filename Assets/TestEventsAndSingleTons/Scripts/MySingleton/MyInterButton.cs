@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MyInterButton : MonoBehaviour
 {
 
     public bool wasPressed = false;
+    public TMP_Text Feedback;
+
+    [HeaderAttribute("AudioManager")]
+    public GameObject EatSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +30,17 @@ public class MyInterButton : MonoBehaviour
 
             MyGameController.instance.ButtonPressedIncrementCount();
 
+            if (EatSound != null)
+                {
+                    EatSound.SetActive(false);
+                    EatSound.SetActive(true);
+                }
+            
         }
         else
         {
             Debug.Log("This button was already pressed , not incrementing count");
+            Feedback.text = "I already ate that. I want something different!";
 
         }
 
