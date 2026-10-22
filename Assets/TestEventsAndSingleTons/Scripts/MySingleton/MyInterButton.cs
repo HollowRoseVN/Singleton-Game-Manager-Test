@@ -30,17 +30,18 @@ public class MyInterButton : MonoBehaviour
 
             MyGameController.instance.ButtonPressedIncrementCount();
 
-            if (EatSound != null)
-                {
-                    EatSound.SetActive(false);
-                    EatSound.SetActive(true);
-                }
-            
         }
         else
         {
             Debug.Log("This button was already pressed , not incrementing count");
-            Feedback.text = "I already ate that. I want something different!";
+            if (Feedback != null)
+            {
+                Feedback.text = "I already ate that. I want something different!";
+            }
+            else
+            {
+                Debug.LogError("Feedback is empty on " + gameObject.name, this);
+            }
 
         }
 

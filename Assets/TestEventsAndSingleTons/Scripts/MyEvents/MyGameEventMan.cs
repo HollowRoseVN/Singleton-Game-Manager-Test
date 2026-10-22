@@ -23,7 +23,7 @@ public class MyGameEventMan : MonoBehaviour
     [Header("Messages")]
     public string fullOfSweetsMessage = "Yay! I'm full of sweets!";
     public string tooFullForSweetsMessage = "I'm too full for sweets...";
-    public string restartMessage = "Let me try again.";
+    public string restartMessage = "Let me at 'em.";
 
     private int startingScore;
     private bool gameOver;
@@ -31,7 +31,7 @@ public class MyGameEventMan : MonoBehaviour
     // Start is called before the first frame update
 
 
-       void Awake()
+    void Awake()
     {
         if (Eventbutton_yum == null || Eventbutton_yuck == null || CounterText == null
             || Pastry == null || Greens == null)
@@ -49,7 +49,7 @@ public class MyGameEventMan : MonoBehaviour
     void OnEnable()
     { Debug.Log("EventManagerEnabled");
 
-        if (Eventbutton_yum == null || Eventbutton_yuck == null) return;
+        if (Eventbutton_yum == null || Eventbutton_yuck == null || Eventbutton_yum1 == null || RestartButton == null) return;
         //** Declare events and addevent listeners to inform when button press has occured
         Eventbutton_yum.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
         Eventbutton_yum1.onClick.AddListener(IncrementAndEvaluateButtonPressCount);
@@ -61,7 +61,7 @@ public class MyGameEventMan : MonoBehaviour
     void OnDisable()
     { Debug.Log("EventManagerDisabled");
 
-        if (Eventbutton_yum == null || Eventbutton_yuck == null) return;
+        if (Eventbutton_yum == null || Eventbutton_yuck == null || Eventbutton_yum1 == null || RestartButton == null) return;
         //** Remove events and addevent listeners to inform when button press has occured
         //*** We do this to keep from  events being double registered or registring in
         // scripts that the engine has destroyed
@@ -123,7 +123,7 @@ public class MyGameEventMan : MonoBehaviour
     }
 
 
-    void EndGame(string message)
+void EndGame(string message)
 {
     gameOver = true;
     ScoreFeedback.text = message;           // overrides the "Yum!"/"Yuck!" text set a moment ago
@@ -155,5 +155,7 @@ void UpdateCounter()
 {
     CounterText.text = $"Score: {buttonPressCount}";
 }
+
+//Reset function to simplify in place of restart
 
 }       

@@ -35,7 +35,7 @@ public class MyGameController : MonoBehaviour
             instance = this;
     }
 
-   public void ButtonPressedIncrementCount()
+    public void ButtonPressedIncrementCount()
     {
         //*** We increment the button press count
         buttonPressCount = buttonPressCount + 1;
@@ -46,13 +46,15 @@ public class MyGameController : MonoBehaviour
             Debug.Log(" Pressed All Available buttons!");
 
         if (buttonPressCount >= 2)
-        Feedback.text = "Ohoho, just a little treat!";
+        Feedback.text = someSweets;
 
         if (buttonPressCount >= 3)
-        Feedback.text = "Well, I AM feeling peckish...";
+        Feedback.text = manySweets;
 
         if (buttonPressCount >= 4)
-        Feedback.text = "...medic...someone call a medic...";
+        Feedback.text = maxSweets;
+
+        PlayEatSound();
 
         CounterText.text = $"Score: {buttonPressCount}";
 
@@ -67,7 +69,16 @@ public class MyGameController : MonoBehaviour
             Debug.Log(" Pressed All Available buttons!");
 
     }
+    public void PlayEatSound()
+    {
+        if (EatSound == null)
+        {
+            Debug.LogError("EatSound is not assigned on MyGameController.", this);
+            return;
+        }
+        EatSound.SetActive(false);
+        EatSound.SetActive(true);
+    
+    }
 
 }
-
-
